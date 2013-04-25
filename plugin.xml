@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            name="Sample Page"
+            nameFilter="*.*"
+            class="kwopenproject.properties.SamplePropertyPage"
+            id="kwopenproject.properties.samplePropertyPage">
+         <enabledWhen>
+            <instanceof
+                  value="org.eclipse.core.resources.IFile">
+            </instanceof>
+         </enabledWhen>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+         <startup class="emenda.kwopenproject.Startup"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="kwopenproject.PreferencesPage"
+            id="kwopenproject.preferencespage"
+            name="preferencespage">
+      </page>
+      <page
+            class="emenda.kwopenproject.preferences.PreferencesPage"
+            id="kwopenproject.preferences.PreferencesPage"
+            name="kwopenproject Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="emenda.kwopenproject.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
